@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Message, Profiler
+from .models import Item, Profiler
 from .forms import ProfilerForm
 
 
@@ -9,6 +9,6 @@ class ProfilerAdmin(admin.ModelAdmin):
     form = ProfilerForm
 
 
-@admin.register(Message)
-class MessageAdmin(admin.ModelAdmin):
-    list_display = ("id", "profiler", "text", "created_at")
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ("id", "profiler", "name", "cost", "created_at")
