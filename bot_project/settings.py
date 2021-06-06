@@ -127,5 +127,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Bot Settings
 
-TOKEN = ""
-PROXY_URL = ""
+TOKEN = ''
+
+PROXY_URL = ''
+
+TEXT_WELCOME = ''
+
+ADMIN_USER = ''
