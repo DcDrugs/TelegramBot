@@ -1,4 +1,3 @@
-import logging
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from telegram import Bot
@@ -7,26 +6,12 @@ from telegram.ext import MessageHandler, CommandHandler
 from telegram.ext import Updater
 from telegram.utils.request import Request
 from .handler import *
-from json import dumps, loads
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger()
 
 
 class Command(BaseCommand):
     help = 'Telegram-bot'
 
     def handle(self, *args, **options):
-        fp = open("settings.json", "r")
-        d = loads(fp.read())
-        for key, value in d.items():
-            if hasattr(settings, key):
-                setattr(settings, key, value)
-            else:
-                setattr(logging, key, value)
-        fp.close()
 
         request = Request(
             connect_timeout=0.5,
