@@ -1,0 +1,5 @@
+[run]
+source = ugc
+         bot_project
+omit = ugc/management/*
+plugins = django_coverage_plugin
