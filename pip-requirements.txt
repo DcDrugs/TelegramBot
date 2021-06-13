@@ -1,3 +1,0 @@
-django==3.2.4
-python-telegram-bot==13.5
-psycopg2
