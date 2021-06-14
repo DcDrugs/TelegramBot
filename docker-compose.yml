@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 services:
   db:
@@ -14,11 +14,11 @@ services:
     build: app/
     restart: always
     command: >
-      bash -c "python app/manage.py runserver 0.0.0.0:8000 
+      bash -c "python app/manage.py runserver
       & python app/manage.py bot"
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - 80:80
     depends_on:
       - db

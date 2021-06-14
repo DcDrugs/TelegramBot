@@ -1,4 +1,4 @@
-from app.ugc.models import Item, Profiler
+from ugc.models import Item, Profiler
 import uuid
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
