@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-$2%w)z#t2aqb2o&b+kfh)tz3@gnoaq4a4+o_1c!hpfztato*e8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"[::1], '0.0.0.0', '10.128.0.2']
 
 
 # Application definition
@@ -83,10 +83,6 @@ WSGI_APPLICATION = 'bot_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 
@@ -144,5 +140,5 @@ TEXT_WELCOME = ''
 ADMIN_USER = ''
 
 
-overrides = loads(open('settings.json').read())
+overrides = loads(open('app/settings.json').read())
 globals().update(overrides)
