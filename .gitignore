@@ -6,6 +6,9 @@
 settings.json
 .superUser.txt
 
+## databased ###
+data
+
 ### VSCode ###
 .vscode/
 
