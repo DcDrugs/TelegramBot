@@ -2,6 +2,28 @@ from ugc.models import Item, Profiler
 import uuid
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+import multiprocessing
+import requests
+
+
+def send_to_all_user(message):
+    procs = []
+    for user in Profiler.objects.all():
+        p = multiprocessing.Process(
+            target=send_message, kwargs={"chat_id": user.external_id, "message": message})
+        p.start()
+        procs.append(p)
+
+    for p in procs:
+        p.join()
+
+
+def send_message(chat_id, message):
+    url = settings.PROXY_URL + settings.TOKEN + \
+        f"/sendMessage?chat_id={chat_id}&parser_mod=Markdown&text={message}"
+    print(url)
+    response = requests.get(url)
+    return response.json()
 
 
 def get_user(update):
